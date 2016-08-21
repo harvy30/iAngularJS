@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app='macPro'>
+
+<head>
+    <title>Angular Application</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js"></script>
+    <!-- <script src="./js/angular.js"></script> -->
+    <!--  <style>
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak {
+            display: none !important;
+        }
+    </style> -->
+</head>
+<!-- ng-cloak -->
+
+<body>
+    <!-- ng-bind="main.firstName + ' and ' + main.lastName" -->
+    <div ng-controller="MainController as main">
+        {{ main.firstName }} and {{ main.lastName }}
+        <h1>Here is the SubController</h1>
+        <!-- ng-bind="sub.firstName + ' and ' + sub.lastName" -->
+        <div ng-controller="SubController as sub">
+            {{ sub.firstName }} and {{ sub.lastName }}
+        </div>
+    </div>
+
+    <div ng-controller="StudentController as sc">
+        <ul>
+            <li ng-repeat="student in sc.students">{{ student.firstName }}</li>
+        </ul>
+    </div>
+
+    <script src="./js/app.js"></script>
+    <script src="./js/MainController.js"></script>
+    <script src="./js/SubController.js"></script>
+    <script src="./js/StudentController.js"></script>
+</body>
+
+</html>
