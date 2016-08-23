@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <title>Angular Application</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js"></script>
+    <!-- <script src="./js/angular.js"></script> -->
+    <style>
+        .old {
+            background: #FF7788;
+        }
+
+        .modern {
+            background: #7788FF;
+        }
+
+        .twenty {
+            background: #2F5F8F;
+        }
+
+        .new {
+            background: #88FF77;
+        }
+    </style>
+</head>
+
+<body>
+    <div ng-controller="MoviesController as movies">
+
+        <!-- ng-class="movie.year < 1999 ? 'old' : 'modern'" -->
+        <!-- ng-class="{
+          'old': movie.year < 1995,
+          'modern': movie.year > 1995 && movie.year < 2000,
+          'new': movie.year > 2000
+        }" -->
+        <div ng-repeat="movie in movies.favorites"
+            ng-class=" (movie.year < 1995) ? 'old' :
+             (movie.year > 1995 && movie.year < 2000) ? 'modern' :
+             (movie.year > 2000 && movie.year < 2005) ? 'twenty' :
+             'new' ">
+            <p>{{ movie.title }}</p>
+            <p>Released in: {{ movie.year }}</p>
+            <hr />
+        </div>
+
+    </div>
+
+    <script src="./js/app.js"></script>
+    <script src="./js/MoviesController.js"></script>
+</body>
+
+</html>
